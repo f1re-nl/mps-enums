@@ -13,6 +13,7 @@
   <sourcePath />
   <languageVersions>
     <language slang="l:879a10bb-fdb5-4415-9cbb-57e2404086ff:accessoryBehavior" version="0" />
+    <language slang="l:10fa8f21-c61f-4f0f-be56-dd2505685f1d:enumsAccessory" version="0" />
     <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
   </languageVersions>
   <dependencyVersions>

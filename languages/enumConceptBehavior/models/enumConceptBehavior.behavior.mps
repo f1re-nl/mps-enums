@@ -7,8 +7,11 @@
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
+    <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="shl3" ref="r:dc1ea73c-938c-44bf-9fc1-9570742aa3f4(enumConceptBehavior.structure)" implicit="true" />
     <import index="drk0" ref="r:9b5cd735-5697-49dc-b633-10396c3b5710(enumsEnumConcept.structure)" implicit="true" />
+    <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" implicit="true" />
+    <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -22,6 +25,7 @@
       <concept id="1225194691553" name="jetbrains.mps.lang.behavior.structure.ThisNodeExpression" flags="nn" index="13iPFW" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
@@ -30,6 +34,9 @@
         <child id="1137022507850" name="body" index="2VODD2" />
       </concept>
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
+      <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
+        <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -52,6 +59,14 @@
       <concept id="1068581242878" name="jetbrains.mps.baseLanguage.structure.ReturnStatement" flags="nn" index="3cpWs6">
         <child id="1068581517676" name="expression" index="3cqZAk" />
       </concept>
+      <concept id="1068581242864" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" flags="nn" index="3cpWs8">
+        <child id="1068581242865" name="localVariableDeclaration" index="3cpWs9" />
+      </concept>
+      <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+        <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
+        <child id="1068499141038" name="actualArgument" index="37wK5m" />
+      </concept>
       <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
@@ -65,7 +80,20 @@
       <concept id="4705942098322467729" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="ng" index="21nZrQ">
         <reference id="4705942098322467736" name="decl" index="21nZrZ" />
       </concept>
+      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
+        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
+      </concept>
+      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
+        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
+        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
+      </concept>
       <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
+      <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
+        <child id="1145404616321" name="leftExpression" index="2JrQYb" />
+      </concept>
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
+        <property id="1238684351431" name="asCast" index="1BlNFB" />
+      </concept>
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -152,6 +180,61 @@
         <property role="TrG5h" value="other" />
         <node concept="3Tqbb2" id="7mUPXF50k5R" role="1tU5fm">
           <ref role="ehGHo" to="shl3:7mUPXF50jt1" resolve="VisibleThingEnum" />
+        </node>
+      </node>
+    </node>
+    <node concept="13i0hz" id="7mUPXF50RLj" role="13h7CS">
+      <property role="TrG5h" value="getEnumerationMemberDeclaration" />
+      <node concept="3Tm1VV" id="7mUPXF50RLk" role="1B3o_S" />
+      <node concept="3Tqbb2" id="7mUPXF50RQl" role="3clF45">
+        <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+      </node>
+      <node concept="3clFbS" id="7mUPXF50RLm" role="3clF47">
+        <node concept="3cpWs8" id="7mUPXF50Shb" role="3cqZAp">
+          <node concept="3cpWsn" id="7mUPXF50She" role="3cpWs9">
+            <property role="TrG5h" value="enumMember" />
+            <node concept="3Tqbb2" id="7mUPXF50Sha" role="1tU5fm">
+              <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+            </node>
+            <node concept="1PxgMI" id="7mUPXF50VXU" role="33vP2m">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="7mUPXF50W6T" role="3oSUPX">
+                <ref role="cht4Q" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+              </node>
+              <node concept="2OqwBi" id="7mUPXF50TQG" role="1m5AlR">
+                <node concept="2OqwBi" id="7mUPXF50TmE" role="2Oq$k0">
+                  <node concept="2OqwBi" id="7mUPXF50SBh" role="2Oq$k0">
+                    <node concept="13iPFW" id="7mUPXF50Ss3" role="2Oq$k0" />
+                    <node concept="3TrcHB" id="7mUPXF50SZn" role="2OqNvi">
+                      <ref role="3TsBF5" to="shl3:7mUPXF50jGW" resolve="enumVisibility" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="7mUPXF50THD" role="2OqNvi">
+                    <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getSourceNode()" resolve="getSourceNode" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="7mUPXF50U9Q" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
+                  <node concept="2OqwBi" id="7mUPXF50VcH" role="37wK5m">
+                    <node concept="liA8E" id="7mUPXF50VwG" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                    </node>
+                    <node concept="2JrnkZ" id="7mUPXF50VcQ" role="2Oq$k0">
+                      <node concept="2OqwBi" id="7mUPXF50UVH" role="2JrQYb">
+                        <node concept="13iPFW" id="7mUPXF50UJ2" role="2Oq$k0" />
+                        <node concept="I4A8Y" id="7mUPXF50V0T" role="2OqNvi" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="7mUPXF50WfE" role="3cqZAp">
+          <node concept="37vLTw" id="7mUPXF50Wnj" role="3cqZAk">
+            <ref role="3cqZAo" node="7mUPXF50She" resolve="enumMember" />
+          </node>
         </node>
       </node>
     </node>
