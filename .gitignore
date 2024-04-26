@@ -1,111 +1,44 @@
-# Local IDE configurations when running from sources/tests/ant
-/system/
-/config/
-/tmpsettings/
-/build/system/
-/build/config/
+workspace.xml
+junitvmwatcher*.properties
+build.properties
 
-# Test results from local test run (ant)
-/TEST-*
-
-# idea integration plugin artifact
-/plugins/mps-idea-integration/IDEAPlugin/mps-idea-integration-plugin.jar
-
-# MacOS user UI setting related file
-.DS_Store
-
-# Intellij Idea user workspace setting files
-**/.idea/workspace.xml
-**/.mps/workspace.xml
-**/.mps/product-workspace.xml
-/build/solution/.idea/workspace.xml
-/MPSPlugin/.idea/workspace.xml
-
-# Local user commits
-**/.idea/shelf
-**/.mps/shelf
-
-# Build artifacts
-/MPSPlugin/apiclasses
-/build/tmp/
-/contrib/build/tmp/
-/build/artifacts/
-/contrib/build/artifacts/
-/build/resources/help/
-/build/resources/JDK/
-/build/resources/openJDK
-classes
+# generated java classes and java source files
+#   manually add any custom artifacts that can't be generated from the models
+#   http://confluence.jetbrains.com/display/MPSD25/HowTo+--+MPS+and+Git
 classes_gen
-testclasses
-kotlin_compiled_cache.xml
-teamcity-info.xml
-*.hprof
-*.class
+source_gen
+source_gen.caches
 
-# Plugins related excludes:
-# Downloadable plugin libraries
-/plugins/mps-kotlin/lib
-/plugins/debugger-api/lib
-/plugins/debugger-java/lib
-/plugins/dev/lib
-/plugins/mps-vcs/lib/
-/plugins/mps-java/lib/
-/plugins/mps-java-workbench/lib/
-/plugins/execution-languages/lib
-/plugins/execution-configurations/lib
-/plugins/jetpad/lib
-/plugins/jetpad/lib/*.war
-/plugins/jetpad/lib/jetpadBuildNumber.txt
-/plugins/mps-junit5/lib
-/plugins/mps-migration/migration-platform/lib
-# Platform bundled plugins
-# (in the same order as in the MPSProperties.groovy to simplify maintaining)
-/plugins/java
-/plugins/java-ide-customization
-/plugins/copyright
-/plugins/properties
-/plugins/properties-resource-bundle-editor
-/plugins/terminal
-/plugins/emojipicker
-/plugins/settingsRepository
-/plugins/tasks
-/plugins/vcs-git
-/plugins/vcs-svn
-/plugins/vcs-github
-/plugins/yaml
-/plugins/ant
-/plugins/sh
-/plugins/vcs-changeReminder
-/plugins/markdown
-/plugins/grazie
-/plugins/space
-# some default plugins (not mentioned in MPSProperties.groovy)
-/plugins/platform-images
-/plugins/laf-macos
-/plugins/laf-win10
-/plugins/mps-devkit/lib
+canonpp/solutions/canonpp.smx.dfe/generator-output/*
 
-# Main libraries folder: dependencies are downloaded before complilation with task 'install' from build/getDependencies.xml
-/lib/
+# Ignore feature files
+*.feature
 
-# Intellij Idea platform artifact, which is extracted to bin, build, lib & plugins folders
-/mps-platform.zip
+# generated test code and test results
+test_gen
+test_gen.caches
+TEST-*.xml
+junit*.properties
+lib/*
 
-# Kotlin compiler
-/plugins/mps-kotlin/kotlinc
+# Ignore Gradle project-specific cache directory
+.gradletasknamecache
+.gradle
+.idea
 
-# Binary files, required for application startup (including Mac executable)
-/bin/linux
-/bin/mac
-/bin/win
-/build/resources/mps
+.DS_Store
+.mps/workspace.xml
+.mps/libraries.xml
+scripts/build.xml
 
-# Path to log files which is overriden in run configuration to allow developers to see log output in run/debug console
-/log/
-/bin/.mps-caches/logs
+/buildSrc/.gradle
+/buildSrc/build
+**/out/
+*.iml
+*.log
 
-# Versions of library dependecies required for platform (like Kotlin, JDK etc)
-/build/dependencies
+# Ignore project build directory.
+build/arden/
+artifacts/
 
-# scripts for mac signing
-/build/tools/mac
+workspace.xml
