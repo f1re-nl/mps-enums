@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MPSProject">
+    <projectModules>
+      <modulePath path="$PROJECT_DIR$/languages/abstractBehavior.sandbox/abstractBehavior.sandbox.msd" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/abstractBehavior/abstractBehavior.mpl" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/accessoryBehavior.sandbox/accessoryBehavior.sandbox.msd" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/accessoryBehavior/accessoryBehavior.mpl" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/enumAttributes/enumAttributes.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/enumBehavior.sandbox/enumBehavior.sandbox.msd" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/enumBehavior/enumBehavior.mpl" folder="ImplementationBehaviors" />
+      <modulePath path="$PROJECT_DIR$/languages/enumsAbstract/enumsAbstract.mpl" folder="ImplementationTechniques" />
+      <modulePath path="$PROJECT_DIR$/languages/enumsAccessory/enumsAccessory.mpl" folder="ImplementationTechniques" />
+      <modulePath path="$PROJECT_DIR$/languages/enumsEnum/enumsEnum.mpl" folder="ImplementationTechniques" />
+    </projectModules>
+  </component>
+</project>
